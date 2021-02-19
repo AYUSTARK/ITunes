@@ -6,8 +6,8 @@ import io.reactivex.Single
 
 class MainRepository(private val apiHelper: ApiHelper) {
 
-    fun getUsers(): Single<List<User>> {
-        return apiHelper.getUsers()
+    fun getUsers(search: String): Single<List<User>> {
+        return apiHelper.getUsers(search)
     }
 
 }
