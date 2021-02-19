@@ -1,4 +1,4 @@
-package com.ayustark.itunes.model
+package com.ayustark.itunes.data.model
 
 data class ResultApi(
     val artistId: Int,
