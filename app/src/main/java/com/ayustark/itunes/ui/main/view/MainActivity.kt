@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ayustark.itunes.R
 import com.ayustark.itunes.data.api.ApiHelper
-import com.ayustark.itunes.data.api.ApiServiceImpl
-import com.ayustark.itunes.data.model.User
+import com.ayustark.itunes.data.api.SongsApi
+import com.ayustark.itunes.data.model.Result
 import com.ayustark.itunes.ui.base.ViewModelFactory
 import com.ayustark.itunes.ui.main.adapter.MainAdapter
 import com.ayustark.itunes.ui.main.viewmodel.MainViewModel
@@ -29,7 +28,27 @@ class MainActivity : AppCompatActivity() {
         setupUI()
         setupViewModel()
         setupObserver()
+        //getList()
     }
+
+/*
+    private fun getList() {
+        val songs = SongsApi.songsApiService.getList("Arjit")
+            songs.enqueue(object: Callback<ResultApi> {
+            override fun onResponse(call: Call<ResultApi>, response: Response<ResultApi>) {
+                val song = response.body()
+                if(song!=null) {
+                    println("Here's the list: $song")
+                    Log.d("Success...Yipee", song.toString())
+                }
+            }
+
+            override fun onFailure(call: Call<ResultApi>, t: Throwable) {
+                Log.d("Gaya kaam se", "Error ${t.toString()}", t)
+            }
+        })
+    }
+*/
 
     private fun setupUI() {
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -44,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupObserver() {
-        mainViewModel.getUsers().observe(this, Observer {
+        mainViewModel.getUsers().observe(this, {
             when (it.status) {
                 Status.SUCCESS -> {
                     progressBar.visibility = View.GONE
@@ -64,7 +83,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun renderList(users: List<User>) {
+    private fun renderList(users: List<Result>) {
         adapter.addData(users)
         adapter.notifyDataSetChanged()
     }
@@ -72,7 +91,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewModel() {
         mainViewModel = ViewModelProviders.of(
                 this,
-                ViewModelFactory(ApiHelper(ApiServiceImpl()))
+                ViewModelFactory(ApiHelper(SongsApi),"Arijit")
         ).get(MainViewModel::class.java)
     }
 }

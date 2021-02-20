@@ -5,20 +5,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ayustark.itunes.R
-import com.ayustark.itunes.data.model.User
+import com.ayustark.itunes.data.model.Result
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_layout.view.*
 
 class MainAdapter(
-    private val users: ArrayList<User>
+    private val songs: ArrayList<Result>
 ) : RecyclerView.Adapter<MainAdapter.DataViewHolder>() {
 
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(user: User) {
-            itemView.textViewUserName.text = user.name
-            itemView.textViewUserEmail.text = user.email
+        fun bind(song: Result) {
+            itemView.textViewUserName.text = song.artistName
+            itemView.textViewUserEmail.text = song.collectionName
             Glide.with(itemView.imageViewAvatar.context)
-                .load(user.avatar)
+                .load(song.artworkUrl100)
                 .into(itemView.imageViewAvatar)
         }
     }
@@ -31,13 +31,13 @@ class MainAdapter(
             )
         )
 
-    override fun getItemCount(): Int = users.size
+    override fun getItemCount(): Int = songs.size
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) =
-        holder.bind(users[position])
+        holder.bind(songs[position])
 
-    fun addData(list: List<User>) {
-        users.addAll(list)
+    fun addData(list: List<Result>) {
+        songs.addAll(list)
     }
 
 }

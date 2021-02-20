@@ -1,13 +1,13 @@
 package com.ayustark.itunes.data.repository
 
 import com.ayustark.itunes.data.api.ApiHelper
-import com.ayustark.itunes.data.model.User
-import io.reactivex.Single
+import com.ayustark.itunes.data.model.ResultApi
+import retrofit2.Call
 
 class MainRepository(private val apiHelper: ApiHelper) {
 
-    fun getUsers(search: String): Single<List<User>> {
-        return apiHelper.getUsers(search)
+    fun getLists(search: String):Call<ResultApi> {
+        return apiHelper.getList(search)
     }
 
 }

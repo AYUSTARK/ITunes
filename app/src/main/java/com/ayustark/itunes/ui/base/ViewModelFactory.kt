@@ -6,11 +6,11 @@ import com.ayustark.itunes.data.api.ApiHelper
 import com.ayustark.itunes.data.repository.MainRepository
 import com.ayustark.itunes.ui.main.viewmodel.MainViewModel
 
-class ViewModelFactory(private val apiHelper: ApiHelper) : ViewModelProvider.Factory {
+class ViewModelFactory(private val apiHelper: ApiHelper,private val search: String) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
-            return MainViewModel(MainRepository(apiHelper)) as T
+            return MainViewModel(MainRepository(apiHelper),search) as T
         }
         throw IllegalArgumentException("Unknown class name")
     }
