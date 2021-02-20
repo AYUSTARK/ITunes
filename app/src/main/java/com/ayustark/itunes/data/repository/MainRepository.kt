@@ -1,13 +1,14 @@
 package com.ayustark.itunes.data.repository
 
+import androidx.lifecycle.MutableLiveData
 import com.ayustark.itunes.data.api.ApiHelper
-import com.ayustark.itunes.data.model.ResultApi
-import retrofit2.Call
+import com.ayustark.itunes.data.model.Result
+import com.ayustark.itunes.utils.Resource
 
 class MainRepository(private val apiHelper: ApiHelper) {
 
-    fun getLists(search: String): Call<ResultApi> {
-        return apiHelper.getList(search)
+    fun getLists(search: String, users: MutableLiveData<Resource<List<Result>>>) {
+        return apiHelper.getList(search, users)
     }
 
 }

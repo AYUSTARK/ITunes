@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         setupUI()
         setupViewModel()
         setupObserver()
-        //getList()
     }
 
     private fun setupUI() {
