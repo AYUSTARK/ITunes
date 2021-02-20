@@ -31,33 +31,14 @@ class MainActivity : AppCompatActivity() {
         //getList()
     }
 
-/*
-    private fun getList() {
-        val songs = SongsApi.songsApiService.getList("Arjit")
-            songs.enqueue(object: Callback<ResultApi> {
-            override fun onResponse(call: Call<ResultApi>, response: Response<ResultApi>) {
-                val song = response.body()
-                if(song!=null) {
-                    println("Here's the list: $song")
-                    Log.d("Success...Yipee", song.toString())
-                }
-            }
-
-            override fun onFailure(call: Call<ResultApi>, t: Throwable) {
-                Log.d("Gaya kaam se", "Error ${t.toString()}", t)
-            }
-        })
-    }
-*/
-
     private fun setupUI() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = MainAdapter(arrayListOf())
         recyclerView.addItemDecoration(
-                DividerItemDecoration(
-                        recyclerView.context,
-                        (recyclerView.layoutManager as LinearLayoutManager).orientation
-                )
+            DividerItemDecoration(
+                recyclerView.context,
+                (recyclerView.layoutManager as LinearLayoutManager).orientation
+            )
         )
         recyclerView.adapter = adapter
     }
@@ -90,8 +71,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViewModel() {
         mainViewModel = ViewModelProviders.of(
-                this,
-                ViewModelFactory(ApiHelper(SongsApi),"Arijit")
+            this,
+            ViewModelFactory(ApiHelper(SongsApi), "Arijit")
         ).get(MainViewModel::class.java)
     }
 }

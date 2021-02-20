@@ -7,5 +7,5 @@ import retrofit2.http.Query
 
 interface SongsApiService {
     @GET("search?")
-    fun getList(@Query("term")search: String): Call<ResultApi>
+    fun getList(@Query("term") search: String): Call<ResultApi>
 }

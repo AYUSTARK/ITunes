@@ -6,7 +6,7 @@ import retrofit2.Call
 
 class MainRepository(private val apiHelper: ApiHelper) {
 
-    fun getLists(search: String):Call<ResultApi> {
+    fun getLists(search: String): Call<ResultApi> {
         return apiHelper.getList(search)
     }
 
