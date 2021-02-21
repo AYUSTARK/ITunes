@@ -1,8 +1,13 @@
 package com.ayustark.itunes.data.repository
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
+import com.ayustark.itunes.data.model.Result
 
-@Entity(tableName = "SearchResult")
+@Entity(tableName = "SongSearch")
 data class SearchEntity(
-    val artistID: Int
+    @ColumnInfo(name = "searchQuery")
+    val searchQuery: String,
+    @ColumnInfo(name = "songs")
+    val songs: List<Result>
 )

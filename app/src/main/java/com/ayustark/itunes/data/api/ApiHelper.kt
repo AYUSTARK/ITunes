@@ -11,25 +11,29 @@ import retrofit2.Response
 
 class ApiHelper(private val songsApi: SongsApi) {
 
-    companion object {
-        lateinit var song: List<Result>
+    interface OnStatus {
+        fun onSuccess(song: List<Result>)
+        fun onFailure()
     }
 
-    fun getList(search: String, users: MutableLiveData<Resource<List<Result>>>) {
+    fun getList(search: String, users: MutableLiveData<Resource<List<Result>>>, status: OnStatus) {
         users.postValue(Resource.loading(null))
         songsApi.songsApiService.getList(search)
             .enqueue(object : Callback<ResultApi> {
                 override fun onResponse(call: Call<ResultApi>, response: Response<ResultApi>) {
-                    song = response.body()?.results!!
+                    val song = response.body()?.results!!
+                    status.onSuccess(song)
                     users.postValue(Resource.success(song))
                     Log.d("Response", song.toString())
                 }
 
                 override fun onFailure(call: Call<ResultApi>, t: Throwable) {
+                    status.onFailure()
                     users.postValue(Resource.error("Something Went Wrong", null))
                     Log.d("Response", "Error $t", t)
                 }
             })
+        //println("Hoja plzz $check")
     }
 
 }

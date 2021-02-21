@@ -6,35 +6,48 @@
     android:layout_height="match_parent"
     android:background="#0090FF">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/outlinedTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginHorizontal="15dp"
-        android:autofillHints=""
-        android:background="@drawable/text_boundary_background"
-        android:hint="Search by Artist"
-        android:inputType="text"
-        android:maxLines="1"
-        android:padding="10dp"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
-        android:textSize="20sp"
+        android:hint="@string/search_by_artist_name"
+        app:endIconMode="clear_text"
+        app:hintTextColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.359"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="16dp">
 
-    <Button
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:background="@drawable/btn_backgroud"
-        android:text="Button"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etArtist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="#006BBD"
+        android:contentDescription="@string/next_fab"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_action_next" />
+    <!--android:backgroundTint="#006BBD" Option for FAB color-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

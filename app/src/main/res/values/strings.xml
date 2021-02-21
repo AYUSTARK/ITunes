@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ITunes</string>
+    <string name="song_image">Song Image</string>
+    <string name="song_title">Song Title</string>
+    <string name="artist_name">Artist Name</string>
+    <string name="collection_name">Collection Name</string>
+    <string name="next_fab">Next FAB</string>
+    <string name="search_by_artist_name">Search by Artist Name</string>
 </resources>
