@@ -1,24 +1,62 @@
 package com.ayustark.itunes.data.repository
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.ayustark.itunes.data.api.ApiHelper
-import com.ayustark.itunes.data.model.Result
 import com.ayustark.itunes.utils.Resource
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
-class MainRepository(private val apiHelper: ApiHelper) {
+class MainRepository(
+    private val apiHelper: ApiHelper,
+    private val search: String,
+    val dao: SearchDao
+) {
 
-    fun getLists(search: String, users: MutableLiveData<Resource<List<Result>>>) {
-        return apiHelper.getList(search, users,
-            object : ApiHelper.OnStatus {
-                override fun onSuccess(song: List<Result>) {
-                    println("Hoja plzz:- $song")
+    suspend fun getLists(
+        users: MutableLiveData<Resource<List<SearchEntity>>>,
+        viewModelScope: CoroutineScope,
+    ) {
+        val songs = dao.searchSongs(search)
+        //println("Ye kyaa h?? ${songs.size}")
+        if (songs.isNotEmpty()) {
+            //println("beda gark...sab barbaad...")
+            users.postValue(Resource.success(songs))
+            Log.d("DataBase Query", "Songs Queried")
+        } else {
+            //println("chalo aage bdho...Abhi ummid baaki h...")
+            //println("This is $songs")
+            return apiHelper.getList(
+                search, users,
+                object : ApiHelper.OnStatus {
+                    override fun onSuccess(song: List<SearchEntity>) {
+                        viewModelScope.launch {
+                            //println("Ye kyaa h?? ${song.size}")
+                            dao.clearSongs()
+                            for (i in song) {
+                                i.searchQuery = search
+                                val insert = dao.insertSongs(i)
+                                //println("checking $insert")
+                            }
+
+                            //println("Hoja plzz:- $song")
+                            Log.d("DataBase Entry", "Song Inserted")
+                        }
+                    }
+
+                    override fun onFailure() {
+                        //println("Hoja plzz:- 12345")
+                    }
+
                 }
-
-                override fun onFailure() {
-                    println("Hoja plzz:- 12345")
-                }
-
-            })
+            )
+        }
     }
+
+/*
+    suspend fun insert(searchResult:SearchEntity):Long{
+        return dao.insertSongs(searchResult)
+    }
+*/
 
 }

@@ -5,16 +5,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ayustark.itunes.R
-import com.ayustark.itunes.data.model.Result
+import com.ayustark.itunes.data.repository.SearchEntity
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_layout.view.*
 
 class MainAdapter(
-    private val songs: ArrayList<Result>
+    private val songs: ArrayList<SearchEntity>
 ) : RecyclerView.Adapter<MainAdapter.DataViewHolder>() {
 
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(song: Result) {
+        fun bind(song: SearchEntity) {
             itemView.txtTitle1.text = song.trackName
             itemView.txtArtist1.text = song.artistName
             itemView.txtColl1.text = song.collectionName
@@ -36,7 +36,7 @@ class MainAdapter(
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) =
         holder.bind(songs[position])
 
-    fun addData(list: List<Result>) {
+    fun addData(list: List<SearchEntity>) {
         songs.addAll(list)
     }
 
