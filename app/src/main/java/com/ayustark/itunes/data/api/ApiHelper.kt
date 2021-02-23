@@ -28,7 +28,7 @@ class ApiHelper(private val songsApi: SongsApi) {
                     val song = response.body()?.results!!
                     users.postValue(Resource.success(song))
                     status.onSuccess(song)
-                    Log.d("Response", song.toString())
+                    Log.d("Response", "${song.size}")
                 }
 
                 override fun onFailure(call: Call<ResultApi>, t: Throwable) {
