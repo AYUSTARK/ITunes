@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0090FF">
+    android:background="@color/back_color">
 
     <ImageView
         android:layout_width="160dp"
@@ -14,6 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/itunes_image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -25,7 +26,7 @@
         android:layout_marginHorizontal="15dp"
         android:hint="@string/search_by_artist_name"
         app:endIconMode="clear_text"
-        app:hintTextColor="#ffffff"
+        app:hintTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.359"
@@ -40,8 +41,8 @@
             android:maxLines="1"
             android:padding="15dp"
             android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textColorHint="#ffffff"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -50,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:backgroundTint="#006BBD"
+        android:backgroundTint="@color/fab_color"
         android:contentDescription="@string/next_fab"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"

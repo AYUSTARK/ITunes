@@ -30,13 +30,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var author = " "
+        var artist = " "
         if (intent != null) {
-            author = intent?.getStringExtra("artist").toString()
+            artist = intent?.getStringExtra("artist").toString()
         }
+        val disp = "Showing results for $artist"
+        txtResult.text = disp
         setupUI()
         val dao = SearchDatabase.getInstance(application).searchDao
-        setupViewModel(author, dao)
+        setupViewModel(artist, dao)
         setupObserver()
     }
 

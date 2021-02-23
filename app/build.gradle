@@ -44,7 +44,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    // noinspection LifecycleAnnotationProcessorWithJava8
     // Annotation processor
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
     implementation "androidx.room:room-runtime:$room_version"
@@ -59,11 +58,8 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-gson:$version_retrofit"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    //implementation "androidx.recyclerview:recyclerview:1.1.0"
-    //implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.18'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     testImplementation 'junit:junit:4.13.2'

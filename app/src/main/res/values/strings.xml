@@ -6,4 +6,6 @@
     <string name="collection_name">Collection Name</string>
     <string name="next_fab">Next FAB</string>
     <string name="search_by_artist_name">Search by Artist Name(min. 4 char(s))</string>
+    <string name="showing_results">Showing results of Arijit</string>
+    <string name="itunes_image">iTunes Image</string>
 </resources>

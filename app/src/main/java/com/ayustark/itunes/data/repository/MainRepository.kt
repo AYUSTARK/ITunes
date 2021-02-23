@@ -17,9 +17,9 @@ class MainRepository(
         users: MutableLiveData<Resource<List<SearchEntity>>>,
         viewModelScope: CoroutineScope,
     ) {
-        val songs = dao.searchSongs(search)
+        val songs = dao.searchSongs(search).value
         //println("Ye kyaa h?? ${songs.size}")
-        if (songs.isNotEmpty()) {
+        if (songs?.isNotEmpty() == true) {
             //println("beda gark...sab barbaad...")
             users.postValue(Resource.success(songs))
             Log.d("DataBase Query", "Songs Queried")
@@ -35,7 +35,7 @@ class MainRepository(
                             dao.clearSongs()
                             for (i in song) {
                                 i.searchQuery = search
-                                val insert = dao.insertSongs(i)
+                                dao.insertSongs(i)
                                 //println("checking $insert")
                             }
 
