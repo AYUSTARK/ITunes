@@ -13,8 +13,6 @@ It works on the iTunes API.
     <td><img src="https://github.com/AYUSTARK/ITunes/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_tunes_foreground.png"></td>
   </tr>
 </table>
-<br>
-<br>
 
 # SAMPLE VIEW
 <table>
@@ -27,8 +25,6 @@ It works on the iTunes API.
     <td><img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesgif.gif" width=240 height=480/></td>
   </tr>
 </table>
-<br>
-<br>
 <table>
   <tr>
     <td>Dark Mode</td>
