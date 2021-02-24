@@ -3,6 +3,8 @@ A Music Player <a href="https://github.com/AYUSTARK/ITunes/raw/master/app/releas
 It works on the iTunes API.
 
 <img src="https://github.com/AYUSTARK/ITunes/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png">
-<br>
-<br>
 <img src="https://github.com/AYUSTARK/ITunes/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_tunes_foreground.png">
+<img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesss3.jpeg">
+<img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesgif.mp4">
+<img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesss1.jpeg" align="left">
+<img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesss2.jpeg" align="right">
