@@ -23,7 +23,7 @@ It works on the iTunes API.
   </tr>
   <tr>
     <td><img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesss3.jpeg" height="480" width="240"></td>
-    <td><img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesgif.mp4" width=240 height=480/></td>
+    <td><img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesgif.gif" width=240 height=480/></td>
   </tr>
 </table>
 <br>
