@@ -4,7 +4,7 @@ It works on the iTunes API.
 
 <img src="https://github.com/AYUSTARK/ITunes/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png">
 <img src="https://github.com/AYUSTARK/ITunes/blob/master/app/src/main/res/mipmap-xxxhdpi/ic_tunes_foreground.png">
-<img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesss3.jpeg">
+<img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesss3.jpeg" height="480" width="240">
 <img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesgif.mp4">
-<img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesss1.jpeg" align="left">
-<img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesss2.jpeg" align="right">
+<img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesss1.jpeg" align="left" height="480" width="240">
+<img src="https://github.com/AYUSTARK/Photos/blob/main/iTunes/itunesss2.jpeg" align="right" height="480" width="240">
