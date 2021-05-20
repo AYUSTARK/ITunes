@@ -62,9 +62,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:maxLines="3"
-                    android:textSize="12sp"
                     android:text="@string/artist_name"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/txtColl1"
@@ -72,9 +72,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:maxLines="4"
-                    android:textSize="12sp"
                     android:text="@string/collection_name"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="12sp" />
 
             </LinearLayout>
 

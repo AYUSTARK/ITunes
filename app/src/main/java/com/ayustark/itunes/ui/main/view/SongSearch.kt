@@ -6,26 +6,28 @@ import android.view.KeyEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
-import com.ayustark.itunes.R
-import kotlinx.android.synthetic.main.search_song.*
+import com.ayustark.itunes.databinding.SearchSongBinding
 
 class SongSearch : AppCompatActivity() {
+    lateinit var binding: SearchSongBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.search_song)
-        floating_action_button.setOnClickListener {
-            val artist = etArtist.text.toString()
+        binding = SearchSongBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.floatingActionButton.setOnClickListener {
+            val artist = binding.etArtist.text.toString()
             if (artist.length >= 4) {
                 intent = Intent(this@SongSearch, MainActivity::class.java)
                 intent.putExtra("artist", artist)
                 startActivity(intent)
             }
         }
-        etArtist.doOnTextChanged { inputText, _, _, _ ->
+
+        binding.etArtist.doOnTextChanged { inputText, _, _, _ ->
             if (inputText?.length!! >= 4) {
-                floating_action_button.visibility = View.VISIBLE
+                binding.floatingActionButton.visibility = View.VISIBLE
             } else {
-                floating_action_button.visibility = View.INVISIBLE
+                binding.floatingActionButton.visibility = View.INVISIBLE
             }
         }
     }
@@ -33,7 +35,7 @@ class SongSearch : AppCompatActivity() {
     override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
         return when (keyCode) {
             KeyEvent.KEYCODE_ENTER -> {
-                floating_action_button.performClick()
+                binding.floatingActionButton.performClick()
                 true
             }
             else ->

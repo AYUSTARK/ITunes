@@ -1,35 +1,31 @@
 package com.ayustark.itunes.ui.main.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ayustark.itunes.R
 import com.ayustark.itunes.data.repository.SearchEntity
+import com.ayustark.itunes.databinding.ItemLayoutBinding
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.item_layout.view.*
 
-class MainAdapter(
-    private val songs: ArrayList<SearchEntity>
-) : RecyclerView.Adapter<MainAdapter.DataViewHolder>() {
+class MainAdapter(private val songs: ArrayList<SearchEntity>) :
+    RecyclerView.Adapter<MainAdapter.DataViewHolder>() {
 
-    class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class DataViewHolder(private val binding: ItemLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(song: SearchEntity) {
-            itemView.txtTitle1.text = song.trackName
-            itemView.txtArtist1.text = song.artistName
-            itemView.txtColl1.text = song.collectionName
+            binding.txtTitle1.text = song.trackName
+            binding.txtArtist1.text = song.artistName
+            binding.txtColl1.text = song.collectionName
             Picasso.get().load(song.artworkUrl100).error(R.mipmap.ic_song)
-                .into(itemView.imgSong1)
+                .into(binding.imgSong1)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        DataViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.item_layout, parent,
-                false
-            )
-        )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
+        val binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return DataViewHolder(binding)
+    }
 
     override fun getItemCount(): Int = songs.size
 
