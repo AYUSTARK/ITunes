@@ -32,7 +32,7 @@ class ApiHelper(private val songsApi: SongsApi) {
                 }
 
                 override fun onFailure(call: Call<ResultApi>, t: Throwable) {
-                    //status.onFailure()
+                    status.onFailure()
                     users.postValue(Resource.error("Something Went Wrong", null))
                     Log.d("Response", "Error $t", t)
                 }
